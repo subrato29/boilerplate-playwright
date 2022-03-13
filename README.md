@@ -5,7 +5,7 @@ Getting started:
 
 Repository url:
 -------------------------------------------------
-	- https://github.com/subrato29/boilerplate-selenium
+	- https://github.com/subrato29/boilerplate-playwright
 
 Framework Nature and Feature:
 -------------------------------------------------
