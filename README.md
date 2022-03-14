@@ -7,11 +7,7 @@ Repository url:
 -------------------------------------------------
 	- https://github.com/subrato29/boilerplate-playwright
 
-Framework Nature and Feature:
+Language used:
 -------------------------------------------------
-	- Maven
-	- Page Object Model
-	- TestNG
-	- Locators map
-	- Hybrid
+	- Java
 
