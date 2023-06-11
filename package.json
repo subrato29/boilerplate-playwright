@@ -1,0 +1,17 @@
+{
+  "name": "boilerplate-playwright",
+  "version": "1.0.0",
+  "description": "This is front-end testing framework using playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "headless": "npx playwright test",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.34.3"
+  }
+}
