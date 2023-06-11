@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const BASE_URL = 'https://www.homedepot.com/'
+const BASE_URL = 'https://www.homedepot.com'
 
 test.describe('Validating home page', () => {
   test.beforeEach(async ({ page }) => {
