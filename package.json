@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npx playwright test --headed",
     "headless": "npx playwright test",
-    "report": "npx playwright show-report"
+    "report": "npx playwright show-report",
+    "e2e": "npx playwright test --headed && npx playwright show-report"
   },
   "keywords": [],
   "author": "",
