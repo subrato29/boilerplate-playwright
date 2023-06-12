@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test'
-const { HomePage } = require('../pages/homePage')
 
 const BASE_URL = 'https://www.homedepot.com'
 
