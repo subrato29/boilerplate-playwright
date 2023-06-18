@@ -1,4 +1,13 @@
 {
   "searchText": "Computer table",
-  "limitOfSuggestedSearchResultInASinglePagge": 40
+  "limitOfSuggestedSearchResultInASinglePagge": 40,
+  "arrOfProductType": [
+    "Electronics",
+    "TVs & Appliances",
+    "Men",
+    "Women",
+    "Baby & Kids",
+    "Home & Furniture",
+    "Sports, Books & More"
+  ]
 }

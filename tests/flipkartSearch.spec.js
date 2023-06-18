@@ -15,7 +15,11 @@ test.describe('Validating search functionality', () => {
     const elementToBeSearched = testDataJSON.searchText
     await flipkartPlus.setSearch(elementToBeSearched)
     await flipkartPlus.clickBtnSearch()
-    await waitHelperUtils.waitForSelector(page, flipkartPlus.searchResult, 5000)
+    await waitHelperUtils.waitForSelector(
+      page,
+      flipkartPlus.searchResult,
+      10000
+    )
     const isLimitOfSuggestedSearchResultVerified =
       await flipkartPlus.verifyLimitOfSuggestedSearchResultInSinglePage(
         page,
