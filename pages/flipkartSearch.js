@@ -20,7 +20,6 @@ export class FlipkartSearch {
     page,
     isLimitOfSuggestedSearchResultVerified
   ) {
-    await page.waitForSelector(this.searchResult, { timeout: 5000 })
     const elements = await page.locator(this.searchResult)
     return await elements.evaluateAll(
       (ele, min) => ele.length > min,
