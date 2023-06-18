@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import testDataJSON from '../support/readDataFromJson'
-const { FlipkartSearch } = require('../pages/flipkartSearch')
+const { FlipkartPlus } = require('../pages/flipkartPlus')
 const waitHelperUtils = require('../utils/waitHelperUtils')
 
 const BASE_URL = 'https://www.flipkart.com/plus'
@@ -11,13 +11,13 @@ test.describe('Validating search functionality', () => {
   })
 
   test('Verifying valid search in Flipkart', async ({ page }) => {
-    const search = new FlipkartSearch(page)
+    const flipkartPlus = new FlipkartPlus(page)
     const elementToBeSearched = testDataJSON.searchText
-    await search.setSearch(elementToBeSearched)
-    await search.clickBtnSearch()
-    await waitHelperUtils.waitForSelector(page, search.searchResult, 5000)
+    await flipkartPlus.setSearch(elementToBeSearched)
+    await flipkartPlus.clickBtnSearch()
+    await waitHelperUtils.waitForSelector(page, flipkartPlus.searchResult, 5000)
     const isLimitOfSuggestedSearchResultVerified =
-      await search.verifyLimitOfSuggestedSearchResultInSinglePage(
+      await flipkartPlus.verifyLimitOfSuggestedSearchResultInSinglePage(
         page,
         testDataJSON.limitOfSuggestedSearchResultInASinglePagge
       )
