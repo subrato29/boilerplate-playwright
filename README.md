@@ -13,6 +13,22 @@ npm install
 
 ```
 
+## Language used
+
+```
+JavaScript
+
+```
+
+## Framework
+
+```
+pageobject
+
+waitUtils
+
+```
+
 ## How to run the test
 
 ```
