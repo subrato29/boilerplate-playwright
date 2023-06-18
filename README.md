@@ -1,5 +1,12 @@
 # boilerplate-playwright
 
+## Author
+
+```
+Subrato Sarkar
+
+```
+
 ## Getting started
 
 ```
