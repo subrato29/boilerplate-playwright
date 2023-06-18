@@ -1,3 +1,4 @@
 {
-  "searchText": "Computer table"
+  "searchText": "Computer table",
+  "limitOfSuggestedSearchResultInASinglePagge": 40
 }
