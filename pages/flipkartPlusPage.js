@@ -11,6 +11,10 @@ export class FlipkartPlusPage {
     this.textBoxEnterEmainOrMobileNo = page.locator(
       "//span[text() = 'Enter Email/Mobile number']"
     )
+    this.minPriceDropdown = page.locator("//option[text() = 'Min']/..")
+    this.maxPriceDropdown = page.locator(
+      "//option[text() = 'Min']/../../..//div[3]/select"
+    )
   }
 
   async setSearch(elementToBeSearched) {
@@ -46,5 +50,13 @@ export class FlipkartPlusPage {
 
   async clickLogin() {
     await this.login.click()
+  }
+
+  async selectMinPrice(minPrice) {
+    await this.minPriceDropdown.selectOption(minPrice)
+  }
+
+  async selectMaxPrice(maxPrice) {
+    await this.maxPriceDropdown.selectOption(maxPrice)
   }
 }

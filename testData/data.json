@@ -9,5 +9,7 @@
     "Baby & Kids",
     "Home & Furniture",
     "Sports, Books & More"
-  ]
+  ],
+  "minPrice": "₹5000",
+  "maxPrice": "₹10000"
 }

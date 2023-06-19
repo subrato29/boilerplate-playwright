@@ -27,4 +27,26 @@ test.describe('Validating search functionality', () => {
       )
     expect(isLimitOfSuggestedSearchResultVerified).toBe(true)
   })
+
+  test('Verifying search result between given min and max price', async ({
+    page,
+  }) => {
+    const flipkartPlus = new FlipkartPlusPage(page)
+    const elementToBeSearched = testDataJSON.searchText
+    await flipkartPlus.setSearch(elementToBeSearched)
+    await flipkartPlus.clickBtnSearch()
+    await waitHelperUtils.waitForSelector(
+      page,
+      flipkartPlus.searchResult,
+      10000
+    )
+    await flipkartPlus.selectMinPrice(testDataJSON.minPrice)
+    await page.waitForTimeout(1000)
+    await flipkartPlus.selectMaxPrice(testDataJSON.maxPrice)
+    await waitHelperUtils.waitForSelector(
+      page,
+      `//div[text() = '${testDataJSON.minPrice}-${testDataJSON.maxPrice}']`,
+      10000
+    )
+  })
 })
