@@ -19,4 +19,10 @@ test.describe('Validating flipkartPlus page', () => {
     arrOfActualProductType = arrOfActualProductType.sort((a, b) => a - b)
     expect(arrOfActualProductType).toStrictEqual(arrOfExpectedProductType)
   })
+
+  test('Verifying login page', async ({ page }) => {
+    const plusPage = new FlipkartPlus(page)
+    await plusPage.clickLogin()
+    await expect(page.getByText('Enter Email/Mobile number')).toBeVisible()
+  })
 })

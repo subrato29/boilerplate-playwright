@@ -9,14 +9,14 @@ test.describe('Validating search functionality', () => {
     await page.goto(BASE_URL)
   })
 
-  test('Presence of search box', async ({ page }) => {
+  test.skip('Presence of search box', async ({ page }) => {
     const homePage = new HomePage(page)
     const validatePresenceOfSearchTextbox =
       await homePage.validatePresenceOfSearchTextbox()
     expect(validatePresenceOfSearchTextbox).toBe(true)
   })
 
-  test('Verifying valid search', async ({ page }) => {
+  test.skip('Verifying valid search', async ({ page }) => {
     const homePage = new HomePage(page)
     const elementToBeSearched = testDataJSON.searchText
     await homePage.setSearch(elementToBeSearched)

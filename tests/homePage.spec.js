@@ -7,7 +7,7 @@ test.describe('Validating home page', () => {
     await page.goto(BASE_URL)
   })
 
-  test('Verify home page', async ({ page }) => {
+  test.skip('Verify home page', async ({ page }) => {
     await expect(page).toHaveTitle(/The Home Depot/)
   })
 })

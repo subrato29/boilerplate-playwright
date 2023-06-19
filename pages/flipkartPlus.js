@@ -7,6 +7,10 @@ export class FlipkartPlus {
     this.btnSearch = page.locator("//button[@type = 'submit']")
     this.searchResult = "//img[@loading = 'eager']"
     this.productType = "//span[text() = 'Electronics']/../span"
+    this.login = page.locator("//a[text() = 'Login']")
+    this.textBoxEnterEmainOrMobileNo = page.locator(
+      "//span[text() = 'Enter Email/Mobile number']"
+    )
   }
 
   async setSearch(elementToBeSearched) {
@@ -38,5 +42,9 @@ export class FlipkartPlus {
       )
     }
     return arrOfProductType
+  }
+
+  async clickLogin() {
+    await this.login.click()
   }
 }

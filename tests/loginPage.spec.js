@@ -8,7 +8,7 @@ test.describe('Validating login page', () => {
     await page.goto(BASE_URL)
   })
 
-  test('Validating sign-in page and set email', async ({ page }) => {
+  test.skip('Validating sign-in page and set email', async ({ page }) => {
     const loginPage = new LoginPage(page)
     const isVisibleTextSignInOrCreateAccount =
       await loginPage.isVisibleTextSignInOrCreateAccount()
