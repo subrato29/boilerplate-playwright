@@ -1,8 +1,8 @@
-const fs = require('fs')
-const path = require('path')
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
 
 const testDataJSON = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '../testData/data.json'))
+  readFileSync(resolve(__dirname, '../testData/data.json'))
 )
 
-module.exports = testDataJSON
+export default testDataJSON
