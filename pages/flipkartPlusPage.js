@@ -1,4 +1,4 @@
-export class FlipkartPlus {
+export class FlipkartPlusPage {
   constructor(page) {
     this.page = page
     this.searchTextBox = page.locator(

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import testDataJSON from '../support/readDataFromJson'
-const { FlipkartPlus } = require('../pages/flipkartPlus')
+const { FlipkartPlusPage } = require('../pages/flipkartPlusPage')
 const waitHelperUtils = require('../utils/waitHelperUtils')
 
 const BASE_URL = 'https://www.flipkart.com/plus'
@@ -11,7 +11,7 @@ test.describe('Validating search functionality', () => {
   })
 
   test('Verifying valid search in Flipkart', async ({ page }) => {
-    const flipkartPlus = new FlipkartPlus(page)
+    const flipkartPlus = new FlipkartPlusPage(page)
     const elementToBeSearched = testDataJSON.searchText
     await flipkartPlus.setSearch(elementToBeSearched)
     await flipkartPlus.clickBtnSearch()
