@@ -48,5 +48,14 @@ test.describe('Validating search functionality', () => {
       `//div[text() = '${testDataJSON.minPrice}-${testDataJSON.maxPrice}']`,
       10000
     )
+    let prices = await flipkartPlus.getAllPrices(page)
+    prices = prices.map((ele) => Number(ele.split(',').join('')))
+
+    const pricesBetweenMinMax = prices.filter(
+      (price) =>
+        price < Number(testDataJSON.minPrice.slice(1)) ||
+        price > Number(testDataJSON.maxPrice.slice(1))
+    )
+    expect(pricesBetweenMinMax.length).toBe(0)
   })
 })

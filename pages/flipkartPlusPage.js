@@ -15,6 +15,7 @@ export class FlipkartPlusPage {
     this.maxPriceDropdown = page.locator(
       "//option[text() = 'Min']/../../..//div[3]/select"
     )
+    this.price = "//div[@class = '_30jeq3']"
   }
 
   async setSearch(elementToBeSearched) {
@@ -58,5 +59,15 @@ export class FlipkartPlusPage {
 
   async selectMaxPrice(maxPrice) {
     await this.maxPriceDropdown.selectOption(maxPrice)
+  }
+
+  async getAllPrices(page) {
+    const prices = await page.$$(this.price)
+    let arrOfPrices = []
+    for (const price of prices) {
+      const eachPrice = await price.innerText()
+      arrOfPrices.push(eachPrice.slice(1))
+    }
+    return arrOfPrices
   }
 }
