@@ -23,7 +23,7 @@ test.describe('Validating search functionality', () => {
     const isLimitOfSuggestedSearchResultVerified =
       await flipkartPlus.verifyLimitOfSuggestedSearchResultInSinglePage(
         page,
-        testDataJSON.limitOfSuggestedSearchResultInASinglePagge
+        testDataJSON.limitOfSuggestedSearchResultInASinglePage
       )
     expect(isLimitOfSuggestedSearchResultVerified).toBe(true)
   })
