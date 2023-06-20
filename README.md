@@ -57,4 +57,6 @@ waitUtils
 ```
 npm run test
 
+Read test data from external JSON
+
 ```
