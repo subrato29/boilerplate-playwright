@@ -31,7 +31,7 @@ npm config set registry http://registry.npmjs.org/
 
 export NODE_EXTRA_CA_CERTS=path/to/my-certs.pem
 
-export NODE_EXTRA_CA_CERTS="/Users/ssarkar/Subrato/ZscalerRootCA.pem"
+export NODE_EXTRA_CA_CERTS=path/to/my-certs.pem
 
 
 ```
