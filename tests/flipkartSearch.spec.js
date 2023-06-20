@@ -48,8 +48,7 @@ test.describe('Validating search functionality', () => {
       `//div[text() = '${testDataJSON.minPrice}-${testDataJSON.maxPrice}']`,
       10000
     )
-    let prices = await flipkartPlus.getAllPrices()
-    prices = prices.map((ele) => Number(ele.split(',').join('')))
+    let prices = await flipkartPlus.getAllPrices(page)
 
     const pricesBetweenMinMax = prices.filter(
       (price) =>
@@ -57,5 +56,37 @@ test.describe('Validating search functionality', () => {
         price > Number(testDataJSON.maxPrice.slice(1))
     )
     expect(pricesBetweenMinMax.length).toBe(0)
+  })
+
+  test('Verifying price low to high', async ({ page }) => {
+    const flipkartPlus = new FlipkartPlusPage(page)
+    const elementToBeSearched = testDataJSON.searchText
+    await flipkartPlus.setSearch(elementToBeSearched)
+    await flipkartPlus.clickBtnSearch()
+    await waitHelperUtils.waitForSelector(
+      page,
+      flipkartPlus.searchResult,
+      10000
+    )
+    await flipkartPlus.clickPriceLowToHigh()
+    const unsortedPrices = await flipkartPlus.getAllPrices(page)
+    const sortedPrices = unsortedPrices.sort((a, b) => a - b)
+    expect(unsortedPrices).toStrictEqual(sortedPrices)
+  })
+
+  test('Verifying price high to low', async ({ page }) => {
+    const flipkartPlus = new FlipkartPlusPage(page)
+    const elementToBeSearched = testDataJSON.searchText
+    await flipkartPlus.setSearch(elementToBeSearched)
+    await flipkartPlus.clickBtnSearch()
+    await waitHelperUtils.waitForSelector(
+      page,
+      flipkartPlus.searchResult,
+      10000
+    )
+    await flipkartPlus.clickPriceHighToLow()
+    const unsortedPrices = await flipkartPlus.getAllPrices(page)
+    const sortedPrices = unsortedPrices.sort((a, b) => b - a)
+    expect(unsortedPrices).toStrictEqual(sortedPrices)
   })
 })
