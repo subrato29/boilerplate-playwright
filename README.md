@@ -50,13 +50,13 @@ pageobject
 
 waitUtils
 
+Read test data from external JSON
+
 ```
 
 ## How to run the test
 
 ```
 npm run test
-
-Read test data from external JSON
 
 ```
