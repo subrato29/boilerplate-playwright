@@ -60,3 +60,12 @@ Read test data from external JSON
 npm run test
 
 ```
+
+## playwright.config
+
+```
+fullyParallel: false (If it's true, then tests will runn in parallel even multiple tests even in same files)
+
+testMatch: 'ebayHome.spec.js' (Under `projects` section, if you want to run a specific test file, you can explicitly mention the name of the file)
+
+```
