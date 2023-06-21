@@ -15,7 +15,7 @@ test.describe('Validating flipkartPlus page', () => {
     const arrOfExpectedProductType = testDataJSON.arrOfProductType.sort(
       (a, b) => a - b
     )
-    let arrOfActualProductType = await plusPage.getAllProductType(page)
+    let arrOfActualProductType = await plusPage.getAllProductType()
     arrOfActualProductType = arrOfActualProductType.sort((a, b) => a - b)
     expect(arrOfActualProductType).toStrictEqual(arrOfExpectedProductType)
   })

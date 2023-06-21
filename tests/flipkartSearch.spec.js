@@ -69,7 +69,7 @@ test.describe('Validating search functionality', () => {
       10000
     )
     await flipkartPlus.clickPriceLowToHigh()
-    const unsortedPrices = await flipkartPlus.getAllPrices(page)
+    const unsortedPrices = await flipkartPlus.getAllPrices()
     const sortedPrices = unsortedPrices.sort((a, b) => a - b)
     expect(unsortedPrices).toStrictEqual(sortedPrices)
   })
@@ -85,7 +85,7 @@ test.describe('Validating search functionality', () => {
       10000
     )
     await flipkartPlus.clickPriceHighToLow()
-    const unsortedPrices = await flipkartPlus.getAllPrices(page)
+    const unsortedPrices = await flipkartPlus.getAllPrices()
     const sortedPrices = unsortedPrices.sort((a, b) => b - a)
     expect(unsortedPrices).toStrictEqual(sortedPrices)
   })

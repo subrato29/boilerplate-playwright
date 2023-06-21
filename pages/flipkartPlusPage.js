@@ -39,13 +39,13 @@ export class FlipkartPlusPage {
     )
   }
 
-  async getAllProductType(page) {
-    const elements = await page.locator(this.productType)
+  async getAllProductType() {
+    const elements = await this.page.locator(this.productType)
     const countOfProductTypes = await elements.evaluateAll((ele) => ele.length)
     let arrOfProductType = []
     for (let i = 1; i <= countOfProductTypes; i++) {
       arrOfProductType.push(
-        await page.locator(`${this.productType}[${i}]`).textContent()
+        await this.page.locator(`${this.productType}[${i}]`).textContent()
       )
     }
     return arrOfProductType
@@ -63,8 +63,8 @@ export class FlipkartPlusPage {
     await this.maxPriceDropdown.selectOption(maxPrice)
   }
 
-  async getAllPrices(page) {
-    const prices = await page.$$eval(this.prices, (elements) =>
+  async getAllPrices() {
+    const prices = await this.page.$$eval(this.prices, (elements) =>
       elements.map((element) => element.innerText)
     )
     let arrOfPrices = []
