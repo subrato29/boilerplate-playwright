@@ -48,5 +48,19 @@
     "Travel",
     "Video Games & Consoles",
     "Everything Else"
+  ],
+  "shopByCategories": [
+    "Motors",
+    "Clothing & Accessories",
+    "Sporting goods",
+    "Electronics",
+    "Business & Industrial",
+    "Jewelry & Watches",
+    "Collectibles & Art",
+    "Home & garden",
+    "Other categories",
+    "All Brands",
+    "All Categories",
+    "Seasonal Sales & Events"
   ]
 }

@@ -26,7 +26,18 @@ test.describe('Validating ebay home page', () => {
     )
   })
 
-  test('Verifying shop by categories', async ({ page }) => {
+  test('Verifying items in shop by categories', async ({ page }) => {
     const homePage = new EbayHomePage(page)
+    let actualItemsInShopByCategory =
+      await homePage.getItemsInShopByCategories()
+    actualItemsInShopByCategory = actualItemsInShopByCategory.sort(
+      (a, b) => a - b
+    )
+    const expectedItemsInShopByCategory = testDataJSON.shopByCategories.sort(
+      (a, b) => a - b
+    )
+    expect(actualItemsInShopByCategory).toStrictEqual(
+      expectedItemsInShopByCategory
+    )
   })
 })
