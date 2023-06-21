@@ -3,18 +3,24 @@ export class EbayHomePage {
     this.page = page
     this.itemsAvailableInAllCategoriesDrodown =
       "//select[@aria-label = 'Select a category for search']/option"
+    this.itemsInShopByCategories =
+      "//button[text() = ' Shop by category']/../..//a[@title]"
   }
 
   async getAllItemsFromDropdownAllCategories() {
-    const items = await this.page.$$eval(
+    let items = await this.page.$$eval(
       this.itemsAvailableInAllCategoriesDrodown,
       (items) => items.map((item) => item.innerText)
     )
-    let arrOfItems = []
-    for (const item of items) {
-      arrOfItems.push(item)
-    }
-    arrOfItems = arrOfItems.filter((item) => item != 'All Categories')
-    return arrOfItems
+    items = items.filter((item) => item != 'All Categories')
+    return items
+  }
+
+  async getItemsInShopByCategories() {
+    const items = await this.page.$$eval(
+      this.itemsInShopByCategories,
+      (items) => items.map((item) => item.innerText)
+    )
+    return items
   }
 }

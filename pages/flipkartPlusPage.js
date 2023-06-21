@@ -40,15 +40,10 @@ export class FlipkartPlusPage {
   }
 
   async getAllProductType() {
-    const elements = await this.page.locator(this.productType)
-    const countOfProductTypes = await elements.evaluateAll((ele) => ele.length)
-    let arrOfProductType = []
-    for (let i = 1; i <= countOfProductTypes; i++) {
-      arrOfProductType.push(
-        await this.page.locator(`${this.productType}[${i}]`).textContent()
-      )
-    }
-    return arrOfProductType
+    const productType = await this.page.$$eval(this.productType, (products) =>
+      products.map((product) => product.innerText)
+    )
+    return productType
   }
 
   async clickLogin() {
@@ -67,12 +62,7 @@ export class FlipkartPlusPage {
     const prices = await this.page.$$eval(this.prices, (elements) =>
       elements.map((element) => element.innerText)
     )
-    let arrOfPrices = []
-    for (let price of prices) {
-      price = price.split(',').join('').split('₹').join('')
-      arrOfPrices.push(price)
-    }
-    return arrOfPrices
+    return prices.map((price) => price.split(',').join('').split('₹').join(''))
   }
 
   async clickPriceLowToHigh() {

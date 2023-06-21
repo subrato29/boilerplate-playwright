@@ -14,6 +14,7 @@ test.describe('Validating ebay home page', () => {
     const homePage = new EbayHomePage(page)
     let actualArrOfItemsInAllCategoriesDropdownn =
       await homePage.getAllItemsFromDropdownAllCategories()
+
     actualArrOfItemsInAllCategoriesDropdownn =
       actualArrOfItemsInAllCategoriesDropdownn.sort((a, b) => a - b)
 
@@ -23,5 +24,9 @@ test.describe('Validating ebay home page', () => {
     expect(actualArrOfItemsInAllCategoriesDropdownn).toStrictEqual(
       expectedArrOfItemsInAllCategoriesDropdownn
     )
+  })
+
+  test('Verifying shop by categories', async ({ page }) => {
+    const homePage = new EbayHomePage(page)
   })
 })
