@@ -50,7 +50,7 @@ export class EbayHomePage {
     await this.btnSearch.click()
   }
 
-  async getAllSearchResultsSuggested() {
+  async getCountOfAllSearchResultsSuggested() {
     return (await this.page.$$(this.searchResultsSuggested)).length
   }
 

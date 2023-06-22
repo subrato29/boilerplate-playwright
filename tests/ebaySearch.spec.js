@@ -17,9 +17,10 @@ test.describe('Validating ebay home page', () => {
     await homePage.setSearch(testDataJSON.ebaySearch)
     await homePage.clickBtnSearch()
     await homePage.isAppearCategoryLabel()
-    const results = await homePage.getAllSearchResultsSuggested()
+    const actualSearchResultCount =
+      await homePage.getCountOfAllSearchResultsSuggested()
     expect(testDataJSON.maxCountOfSearchResultsAppear).toBeLessThanOrEqual(
-      results
+      actualSearchResultCount
     )
   })
 })

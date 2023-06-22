@@ -61,7 +61,7 @@ npm run test
 
 ```
 
-## playwright.config
+## playwright.config.js
 
 ```
 fullyParallel: false (If it's true, then tests will runn in parallel even multiple tests even in same files)
