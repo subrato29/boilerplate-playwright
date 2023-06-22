@@ -62,5 +62,20 @@
     "All Brands",
     "All Categories",
     "Seasonal Sales & Events"
+  ],
+  "myEbayList": [
+    "Summary",
+    "Recently Viewed",
+    "Bids/Offers",
+    "Watchlist",
+    "Purchase History",
+    "Buy Again",
+    "Selling",
+    "Saved Searches",
+    "Saved Sellers",
+    "My Garage",
+    "Messages",
+    "Collection beta",
+    "The eBay vault"
   ]
 }

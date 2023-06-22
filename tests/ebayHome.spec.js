@@ -40,4 +40,14 @@ test.describe('Validating ebay home page', () => {
       expectedItemsInShopByCategory
     )
   })
+
+  test('Verifying My eBay list', async ({ page }) => {
+    const homePage = new EbayHomePage(page)
+    let actualItemsInMyEbayList = await homePage.getAllItemsInMyEbayList()
+    actualItemsInMyEbayList = actualItemsInMyEbayList.sort((a, b) => a - b)
+    let expectedItemsInMyEbayList = testDataJSON.myEbayList.sort(
+      (a, b) => a - b
+    )
+    expect(actualItemsInMyEbayList).toStrictEqual(expectedItemsInMyEbayList)
+  })
 })
