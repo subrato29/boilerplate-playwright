@@ -1,3 +1,5 @@
+const waitHelperUtils = require('../utils/waitHelperUtils')
+
 export class EbayHomePage {
   constructor(page) {
     this.page = page
@@ -7,6 +9,13 @@ export class EbayHomePage {
       "//button[text() = ' Shop by category']/../..//a[@title]"
     this.myEbayList =
       "//a[text() = 'My eBay']/..//ul[@role = 'navigation']/li/a"
+    this.searchTextBox = page.locator(
+      "//input[@placeholder = 'Search for anything']"
+    )
+    this.btnSearch = page.locator("//input[@value = 'Search']")
+    this.searchResultsSuggested =
+      "//ul[contains(@class, 'srp-results')]/li[@data-viewport]"
+    this.category = "//h3[text() = 'Category']"
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -31,5 +40,21 @@ export class EbayHomePage {
       items.map((item) => item.innerText.trim())
     )
     return items
+  }
+
+  async setSearch(searchItem) {
+    await this.searchTextBox.type(searchItem)
+  }
+
+  async clickBtnSearch() {
+    await this.btnSearch.click()
+  }
+
+  async getAllSearchResultsSuggested() {
+    return (await this.page.$$(this.searchResultsSuggested)).length
+  }
+
+  async isAppearCategoryLabel() {
+    await waitHelperUtils.waitForSelector(this.page, this.category, 10000)
   }
 }
