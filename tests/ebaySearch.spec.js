@@ -52,4 +52,20 @@ test.describe('Validating ebay home page', () => {
       `1 result for ${testDataJSON.eBayItemNo}`
     )
   })
+
+  test('Verify advanced search', async ({ page }) => {
+    const homePage = new EbayHomePage(page)
+    await homePage.clickAdvancedSearch()
+    await homePage.waitForAdvancedSearchPage()
+    await homePage.enterKeywordsOrItemNo(testDataJSON.eBayItemNo)
+    await homePage.clickBtnSearchFirst()
+    await homePage.waitForAllListingLabelDisplayed()
+    const productTitle = await homePage.getProductTitle()
+    expect(productTitle.trim()).toBe(testDataJSON.productTitle)
+    const productCountByProductId =
+      await homePage.getItemCountDisplayedByProductId()
+    expect(productCountByProductId.trim()).toBe(
+      `1 result for ${testDataJSON.eBayItemNo}`
+    )
+  })
 })

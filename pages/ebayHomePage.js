@@ -27,6 +27,14 @@ export class EbayHomePage {
     this.productItemsDisplayed = page.locator(
       "//h1[@class = 'srp-controls__count-heading']"
     )
+    this.advancedSearch = page.locator("//a[@title = 'Advanced Search']")
+    this.advanceSearchTitle = "//div[text() = 'Advanced Search']"
+    this.inputBoxEnterKeywordsOrItemNo = page.locator(
+      "//span[text() = 'Enter keywords or item number']/../..//input"
+    )
+    this.btnSearchFirst = page.locator(
+      "//div[contains(@class, 'adv-keywords__btn-help')]//button[text() = 'Search']"
+    )
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -102,5 +110,25 @@ export class EbayHomePage {
 
   async getItemCountDisplayedByProductId() {
     return await this.productItemsDisplayed.textContent()
+  }
+
+  async clickAdvancedSearch() {
+    await this.advancedSearch.click()
+  }
+
+  async waitForAdvancedSearchPage() {
+    await waitHelperUtils.waitForSelector(
+      this.page,
+      this.advanceSearchTitle,
+      10000
+    )
+  }
+
+  async enterKeywordsOrItemNo(value) {
+    await this.inputBoxEnterKeywordsOrItemNo.type(value)
+  }
+
+  async clickBtnSearchFirst() {
+    await this.btnSearchFirst.click()
   }
 }
