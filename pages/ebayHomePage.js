@@ -20,6 +20,10 @@ export class EbayHomePage {
       "//ul[@role = 'listbox']/li/a"
     this.suggestedSearchAreaDisplayed =
       "//ul[@role = 'listbox'][contains(@class, 'ghAC_opened')]"
+    this.productTitle = page.locator(
+      "//div[@class = 's-item__title']/span/span[@class = 'BOLD']"
+    )
+    this.allListings = "//span[@aria-label = 'All Listings Current view']"
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -83,5 +87,13 @@ export class EbayHomePage {
       this.suggestedSearchAreaDisplayed,
       10000
     )
+  }
+
+  async waitForAllListingLabelDisplayed() {
+    await waitHelperUtils.waitForSelector(this.page, this.allListings, 10000)
+  }
+
+  async getProductTitle() {
+    return await this.productTitle.textContent()
   }
 }

@@ -38,4 +38,13 @@ test.describe('Validating ebay home page', () => {
     )
     expect(arrayOfPresence.includes(false)).toBe(false)
   })
+
+  test('Searching element by eBay Item Number', async ({ page }) => {
+    const homePage = new EbayHomePage(page)
+    await homePage.setSearch(testDataJSON.eBayItemNo)
+    await homePage.clickBtnSearch()
+    await homePage.waitForAllListingLabelDisplayed()
+    const productTitle = await homePage.getProductTitle()
+    expect(productTitle.trim()).toBe(testDataJSON.productTitle)
+  })
 })
