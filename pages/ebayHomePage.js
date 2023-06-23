@@ -65,7 +65,10 @@ export class EbayHomePage {
   async getTextSuggestedAfterSearch() {
     const arrayOfSuggestedTextAfterSearch = await this.page.$$eval(
       this.searchResultsSuggestedAfterSendingTextInSearchBox,
-      (items) => items.map((item) => item.getAttribute('aria-label').trim())
+      (items) =>
+        items.map((item) =>
+          item.getAttribute('aria-label').trim().toLowerCase()
+        )
     )
     return arrayOfSuggestedTextAfterSearch
   }
