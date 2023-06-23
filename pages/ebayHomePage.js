@@ -24,6 +24,9 @@ export class EbayHomePage {
       "//div[@class = 's-item__title']/span/span[@class = 'BOLD']"
     )
     this.allListings = "//span[@aria-label = 'All Listings Current view']"
+    this.productItemsDisplayed = page.locator(
+      "//h1[@class = 'srp-controls__count-heading']"
+    )
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -95,5 +98,9 @@ export class EbayHomePage {
 
   async getProductTitle() {
     return await this.productTitle.textContent()
+  }
+
+  async getItemCountDisplayedByProductId() {
+    return await this.productItemsDisplayed.textContent()
   }
 }

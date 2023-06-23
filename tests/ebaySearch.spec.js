@@ -46,5 +46,10 @@ test.describe('Validating ebay home page', () => {
     await homePage.waitForAllListingLabelDisplayed()
     const productTitle = await homePage.getProductTitle()
     expect(productTitle.trim()).toBe(testDataJSON.productTitle)
+    const productCountByProductId =
+      await homePage.getItemCountDisplayedByProductId()
+    expect(productCountByProductId.trim()).toBe(
+      `1 result for ${testDataJSON.eBayItemNo}`
+    )
   })
 })
