@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
 import testDataJSON from '../support/readDataFromJson'
 import { EbayHomePage } from '../pages/ebayHomePage'
-const waitHelperUtils = require('../utils/waitHelperUtils')
 
 const BASE_URL = 'https://www.ebay.com'
 
