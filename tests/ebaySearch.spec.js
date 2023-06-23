@@ -23,4 +23,19 @@ test.describe('Validating ebay home page', () => {
       actualSearchResultCount
     )
   })
+
+  test('Verifying suggested results suggested after sending text in search box', async ({
+    page,
+  }) => {
+    const homePage = new EbayHomePage(page)
+    await homePage.setSearch(testDataJSON.ebaySearch)
+    await homePage.clickSearchBox()
+    await homePage.waitForSuggestedSearchAreaDisplayed()
+    const arrayOfSuggestedTextAfterSearch =
+      await homePage.getTextSuggestedAfterSearch()
+    const arrayOfPresence = arrayOfSuggestedTextAfterSearch.map((element) =>
+      element.includes(testDataJSON.ebaySearch.toLowerCase())
+    )
+    expect(arrayOfPresence.includes(false)).toBe(false)
+  })
 })

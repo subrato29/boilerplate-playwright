@@ -16,6 +16,10 @@ export class EbayHomePage {
     this.searchResultsSuggested =
       "//ul[contains(@class, 'srp-results')]/li[@data-viewport]"
     this.category = "//h3[text() = 'Category']"
+    this.searchResultsSuggestedAfterSendingTextInSearchBox =
+      "//ul[@role = 'listbox']/li/a"
+    this.suggestedSearchAreaDisplayed =
+      "//ul[@role = 'listbox'][contains(@class, 'ghAC_opened')]"
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -56,5 +60,25 @@ export class EbayHomePage {
 
   async isAppearCategoryLabel() {
     await waitHelperUtils.waitForSelector(this.page, this.category, 10000)
+  }
+
+  async getTextSuggestedAfterSearch() {
+    const arrayOfSuggestedTextAfterSearch = await this.page.$$eval(
+      this.searchResultsSuggestedAfterSendingTextInSearchBox,
+      (items) => items.map((item) => item.getAttribute('aria-label').trim())
+    )
+    return arrayOfSuggestedTextAfterSearch
+  }
+
+  async clickSearchBox() {
+    await this.searchTextBox.click()
+  }
+
+  async waitForSuggestedSearchAreaDisplayed() {
+    await waitHelperUtils.waitForSelector(
+      this.page,
+      this.suggestedSearchAreaDisplayed,
+      10000
+    )
   }
 }
