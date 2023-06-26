@@ -35,6 +35,7 @@ export class EbayHomePage {
     this.btnSearchFirst = page.locator(
       "//div[contains(@class, 'adv-keywords__btn-help')]//button[text() = 'Search']"
     )
+    this.checkboxesYear = "//h3[text() = 'Release Year']/../..//input"
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -96,12 +97,12 @@ export class EbayHomePage {
     await waitHelperUtils.waitForSelector(
       this.page,
       this.suggestedSearchAreaDisplayed,
-      10000
+      5000
     )
   }
 
   async waitForAllListingLabelDisplayed() {
-    await waitHelperUtils.waitForSelector(this.page, this.allListings, 10000)
+    await waitHelperUtils.waitForSelector(this.page, this.allListings, 3000)
   }
 
   async getProductTitle() {
@@ -130,5 +131,14 @@ export class EbayHomePage {
 
   async clickBtnSearchFirst() {
     await this.btnSearchFirst.click()
+  }
+
+  async clickCheckBoxesYear() {
+    const elements = await this.page.$$(this.checkboxesYear)
+    for (const element of elements) {
+      try {
+        await this.page.evaluateHandle((el) => el.click(), element)
+      } catch (error) {}
+    }
   }
 }

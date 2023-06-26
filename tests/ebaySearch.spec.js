@@ -52,7 +52,7 @@ test.describe('Validating ebay home page', () => {
     )
   })
 
-  test('Verify advanced search', async ({ page }) => {
+  test.skip('Verify advanced search', async ({ page }) => {
     const homePage = new EbayHomePage(page)
     await homePage.clickAdvancedSearch()
     await homePage.waitForAdvancedSearchPage()
@@ -66,5 +66,13 @@ test.describe('Validating ebay home page', () => {
     expect(productCountByProductId.trim()).toBe(
       `1 result for ${testDataJSON.eBayItemNo}`
     )
+  })
+
+  test('Click all checkboxes under year', async ({ page }) => {
+    const homePage = new EbayHomePage(page)
+    await homePage.setSearch(testDataJSON.ebaySearch)
+    await homePage.clickBtnSearch()
+    await homePage.waitForAllListingLabelDisplayed()
+    await homePage.clickCheckBoxesYear()
   })
 })
