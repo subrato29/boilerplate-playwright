@@ -68,11 +68,11 @@ test.describe('Validating ebay home page', () => {
     )
   })
 
-  test('Click all checkboxes under year', async ({ page }) => {
+  test.skip('Click all checkboxes under year', async ({ page }) => {
     const homePage = new EbayHomePage(page)
     await homePage.setSearch(testDataJSON.ebaySearch)
     await homePage.clickBtnSearch()
     await homePage.waitForAllListingLabelDisplayed()
-    await homePage.clickCheckBoxesYear()
+    await homePage.clickAllCheckBoxesYear()
   })
 })

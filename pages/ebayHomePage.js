@@ -35,7 +35,8 @@ export class EbayHomePage {
     this.btnSearchFirst = page.locator(
       "//div[contains(@class, 'adv-keywords__btn-help')]//button[text() = 'Search']"
     )
-    this.checkboxesYear = "//h3[text() = 'Release Year']/../..//input"
+    this.allCheckboxesYear =
+      "//h3[text() = 'Release Year']/../..//input[not(@checked)]"
   }
 
   async getAllItemsFromDropdownAllCategories() {
@@ -133,10 +134,11 @@ export class EbayHomePage {
     await this.btnSearchFirst.click()
   }
 
-  async clickCheckBoxesYear() {
-    const elements = await this.page.$$(this.checkboxesYear)
-    for (const element of elements) {
-      await this.page.evaluateHandle((el) => el.click(), element)
+  async clickAllCheckBoxesYear() {
+    const page = this.page
+    let checkboxes = await page.$$(this.allCheckboxesYear)
+    for (const checkbox of checkboxes) {
+      await checkbox.click()
     }
   }
 }
