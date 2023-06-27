@@ -136,9 +136,7 @@ export class EbayHomePage {
   async clickCheckBoxesYear() {
     const elements = await this.page.$$(this.checkboxesYear)
     for (const element of elements) {
-      try {
-        await this.page.evaluateHandle((el) => el.click(), element)
-      } catch (error) {}
+      await this.page.evaluateHandle((el) => el.click(), element)
     }
   }
 }
