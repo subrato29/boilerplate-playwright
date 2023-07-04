@@ -23,9 +23,10 @@ export class BrandOutletPage {
   }
 
   async clickClothing() {
-    const element = await this.page.$(this.clothing)
-    await element.scrollIntoViewIfNeeded()
-    await element.click()
+    await PlaywrightHelper.scrollIntoViewIfNeededAndClick(
+      this.page,
+      this.clothing
+    )
   }
 
   async getAllClothingBrands() {

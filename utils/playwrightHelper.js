@@ -4,6 +4,12 @@ export class PlaywrightHelper {
       elements.map((element) => element.innerText)
     )
   }
+
+  async scrollIntoViewIfNeededAndClick(page, locator) {
+    const element = await page.$(locator)
+    await element.scrollIntoViewIfNeeded()
+    await element.click()
+  }
 }
 
 module.exports = new PlaywrightHelper()
