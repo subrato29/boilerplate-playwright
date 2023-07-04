@@ -81,5 +81,13 @@
   "ebaySearch": "macbook pro",
   "maxCountOfSearchResultsAppear": 60,
   "eBayItemNo": "204289897720",
-  "productTitle": "Apple MacBook Pro w/ Apple M1 Pro chip (14-inch,16GB RAM, 512GB SSD) -Space Gray"
+  "productTitle": "Apple MacBook Pro w/ Apple M1 Pro chip (14-inch,16GB RAM, 512GB SSD) -Space Gray",
+  "brands": [
+    "Champion",
+    "Golf Apparel Shop",
+    "Hanes",
+    "Perry Ellis",
+    "Rafaella",
+    "Volcom"
+  ]
 }

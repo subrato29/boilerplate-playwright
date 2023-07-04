@@ -38,7 +38,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: 'ebaySearch.spec.js',
+      testMatch: 'brandOutlet.spec.js',
       use: {
         ...devices['Desktop Chrome'],
         viewport: {
