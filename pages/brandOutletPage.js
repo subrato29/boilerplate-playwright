@@ -1,5 +1,5 @@
 const waitHelperUtils = require('../utils/waitHelperUtils')
-const PlaywrightHelper = require('../utils/playwrightHelper')
+import { PlaywrightHelper } from '../utils/playwrightHelper'
 
 export class BrandOutletPage {
   constructor(page) {
@@ -23,14 +23,14 @@ export class BrandOutletPage {
   }
 
   async clickClothing() {
-    await PlaywrightHelper.scrollIntoViewIfNeededAndClick(
+    await new PlaywrightHelper().scrollIntoViewIfNeededAndClick(
       this.page,
       this.clothing
     )
   }
 
   async getAllClothingBrands() {
-    const brands = await PlaywrightHelper.getInnerTextOfAllElements(
+    const brands = await new PlaywrightHelper().getInnerTextOfAllElements(
       this.page,
       this.clothingBrands
     )

@@ -10,6 +10,8 @@ export class PlaywrightHelper {
     await element.scrollIntoViewIfNeeded()
     await element.click()
   }
-}
 
-module.exports = new PlaywrightHelper()
+  async keyboardPressEnter(page) {
+    await page.keyboard.press('Enter')
+  }
+}
