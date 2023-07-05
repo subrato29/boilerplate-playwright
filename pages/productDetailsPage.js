@@ -1,7 +1,7 @@
 const waitHelperUtils = require('../utils/waitHelperUtils')
 import { PlaywrightHelper } from '../utils/playwrightHelper'
 
-export class CommonPage {
+export class ProductDetailsPage {
   constructor(page) {
     this.page = page
     this.addToCart = `//span[text() = 'Add to cart']/../..`
