@@ -12,7 +12,7 @@ test.describe('Verifying the brand outlet page', () => {
   test('Verifying clothing brands enlisted', async ({ page }) => {
     const brandOutletPage = new BrandOutletPage(page)
     await brandOutletPage.clickLnkBrandOutlet()
-    await brandOutletPage.isPresentpageHeaderTheBrandOutlet()
+    await brandOutletPage.isPresentPageHeaderTheBrandOutlet()
     await brandOutletPage.clickClothing()
     const actualBrandsSorted = await brandOutletPage.getAllClothingBrands()
     const expectedBrandsSorted = testDataJSON.brands.sort((a, b) => a - b)

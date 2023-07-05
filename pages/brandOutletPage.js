@@ -14,7 +14,7 @@ export class BrandOutletPage {
     await this.lnkBrandOutlet.click()
   }
 
-  async isPresentpageHeaderTheBrandOutlet() {
+  async isPresentPageHeaderTheBrandOutlet() {
     await waitHelperUtils.waitForSelector(
       this.page,
       this.pageHeaderTheBrandOutlet,
