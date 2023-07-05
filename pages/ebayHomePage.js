@@ -137,6 +137,7 @@ export class EbayHomePage {
     const page = this.page
     let checkboxes = await page.$$(this.allCheckboxesYear)
     for (let i = 1; i <= checkboxes.length; i++) {
+      await page.waitForURL()
       await page.locator(`${this.allCheckboxesYear}[${i}]//input`).click()
     }
   }
