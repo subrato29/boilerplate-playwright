@@ -4,7 +4,7 @@ import { PlaywrightHelper } from '../utils/playwrightHelper'
 export class CommonPage {
   constructor(page) {
     this.page = page
-    this.addToCart = `//span[text() = 'Add to cart']`
+    this.addToCart = `//span[text() = 'Add to cart']/../..`
     this.sizeMeasure = page.locator(`//span[text() = 'Size']/../..//select`)
     this.quantity = page.locator(`//input[@id = 'qtyTextBox']`)
   }
@@ -19,5 +19,9 @@ export class CommonPage {
 
   async setQuantity(quantity) {
     await this.quantity.fill(quantity)
+  }
+
+  async clickAddToCart() {
+    await this.page.locator(this.addToCart).click()
   }
 }

@@ -23,6 +23,7 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await commonPage.selectSize('2XL')
     await page.waitForURL()
     await commonPage.setQuantity('3')
+    await commonPage.clickAddToCart()
     await page.waitForTimeout(2000)
   })
 })
