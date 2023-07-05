@@ -37,10 +37,10 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'chrome',
       testMatch: 'championBrandOutlet.spec.js',
       use: {
-        ...devices['Desktop Chrome'],
+        //...devices['Desktop Chrome'],
         viewport: {
           width: 1650,
           height: 820,
