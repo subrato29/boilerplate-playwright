@@ -8,6 +8,10 @@ export class ProductDetailsPage {
     this.quantity = page.locator(`//input[@id = 'qtyTextBox']`)
     this.goToCart = `//span[text() = 'Go to cart']/../..`
     this.headerAtCartPopup = page.locator(`//h2[@class = 'vi-overlayTitleBar']`)
+    this.price = page.locator(`//div[contains(@class, 'price-primary')]/span`)
+    this.totalPrice = page.locator(
+      `//span[text() = 'Estimated total']/../../../..//span[contains(@class, 'cc-text-spans')]`
+    )
   }
 
   async isPresentAddToCart() {
@@ -34,5 +38,15 @@ export class ProductDetailsPage {
   async itemsAddedHeaderMessage() {
     const message = await this.headerAtCartPopup.textContent()
     return message.trim()
+  }
+
+  async getPrice() {
+    const price = await this.price.textContent()
+    return price.split('$')[1].trim()
+  }
+
+  async getTotalPrice() {
+    const price = await this.totalPrice.textContent()
+    return price.split('$')[1].trim()
   }
 }

@@ -11,7 +11,9 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await page.goto(BASE_URL)
   })
 
-  test('Verifying search functionality', async ({ page }) => {
+  test('Verifying search functionality and checkout items', async ({
+    page,
+  }) => {
     const championBrandOutletPage = new ChampionBrandOutletPage(page)
     const productDetailsPage = new ProductDetailsPage(page)
     await championBrandOutletPage.setSearch(testDataJSON.eBayItemNo1)
@@ -25,6 +27,8 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     const quantity = testDataJSON.quantity
     await productDetailsPage.setQuantity(quantity)
     await page.waitForURL()
+    const pricePerItem = await productDetailsPage.getPrice()
+    const expectedTotalPrice = parseFloat(pricePerItem) * parseFloat(quantity)
     await productDetailsPage.clickAddToCart()
     await productDetailsPage.isPresentGoToCart()
     const itemOrItems = quantity == '1' ? 'item' : 'items'
@@ -32,5 +36,7 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     const actualMessageOfItemsAdded =
       await productDetailsPage.itemsAddedHeaderMessage()
     expect(expectedMessageOfItemsAdded).toBe(actualMessageOfItemsAdded)
+    const actualTotalPrice = await productDetailsPage.getTotalPrice()
+    expect(expectedTotalPrice).toBe(parseFloat(actualTotalPrice))
   })
 })
