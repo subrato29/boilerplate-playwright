@@ -20,10 +20,17 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await championBrandOutletPage.clickProductLink()
     await productDetailsPage.isPresentAddToCart()
     await page.waitForURL()
-    await productDetailsPage.selectSize('2XL')
+    await productDetailsPage.selectSize(testDataJSON.size)
     await page.waitForURL()
-    await productDetailsPage.setQuantity('3')
+    const quantity = testDataJSON.quantity
+    await productDetailsPage.setQuantity(quantity)
+    await page.waitForURL()
     await productDetailsPage.clickAddToCart()
-    await page.waitForTimeout(2000)
+    await productDetailsPage.isPresentGoToCart()
+    const itemOrItems = quantity == '1' ? 'item' : 'items'
+    const expectedMessageOfItemsAdded = `${quantity} ${itemOrItems} added to cart`
+    const actualMessageOfItemsAdded =
+      await productDetailsPage.itemsAddedHeaderMessage()
+    expect(expectedMessageOfItemsAdded).toBe(actualMessageOfItemsAdded)
   })
 })

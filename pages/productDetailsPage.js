@@ -1,5 +1,4 @@
 const waitHelperUtils = require('../utils/waitHelperUtils')
-import { PlaywrightHelper } from '../utils/playwrightHelper'
 
 export class ProductDetailsPage {
   constructor(page) {
@@ -7,6 +6,8 @@ export class ProductDetailsPage {
     this.addToCart = `//span[text() = 'Add to cart']/../..`
     this.sizeMeasure = page.locator(`//span[text() = 'Size']/../..//select`)
     this.quantity = page.locator(`//input[@id = 'qtyTextBox']`)
+    this.goToCart = `//span[text() = 'Go to cart']/../..`
+    this.headerAtCartPopup = page.locator(`//h2[@class = 'vi-overlayTitleBar']`)
   }
 
   async isPresentAddToCart() {
@@ -18,10 +19,20 @@ export class ProductDetailsPage {
   }
 
   async setQuantity(quantity) {
-    await this.quantity.fill(quantity)
+    await this.quantity.clear()
+    await this.quantity.type(quantity)
   }
 
   async clickAddToCart() {
     await this.page.locator(this.addToCart).click()
+  }
+
+  async isPresentGoToCart() {
+    await waitHelperUtils.waitForSelector(this.page, this.goToCart, 10000)
+  }
+
+  async itemsAddedHeaderMessage() {
+    const message = await this.headerAtCartPopup.textContent()
+    return message.trim()
   }
 }
