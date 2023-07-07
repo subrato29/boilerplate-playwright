@@ -26,7 +26,6 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await page.waitForURL()
     const quantity = testDataJSON.quantity
     await productDetailsPage.setQuantity(quantity)
-    await page.waitForURL()
     const pricePerItem = await productDetailsPage.getPrice()
     const expectedTotalPrice = parseFloat(pricePerItem) * parseFloat(quantity)
     await productDetailsPage.clickAddToCart()
