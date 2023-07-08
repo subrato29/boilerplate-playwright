@@ -1,5 +1,4 @@
-import { test, expect } from '@playwright/test'
-import testDataJSON from '../support/readDataFromJson'
+import { test } from '@playwright/test'
 import { HelpAndContactPage } from '../pages/helpAndContactPage'
 
 const BASE_URL = 'https://www.ebay.com'
