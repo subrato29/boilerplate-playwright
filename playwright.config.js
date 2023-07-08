@@ -38,7 +38,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chrome',
-      testMatch: 'championBrandOutlet.spec.js',
+      testMatch: 'flipkartPlus.spec.js',
       use: {
         //...devices['Desktop Chrome'],
         viewport: {
