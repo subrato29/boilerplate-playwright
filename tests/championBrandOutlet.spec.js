@@ -54,4 +54,16 @@ test.describe('Verifying champion clothing brand outlet page', () => {
       parseFloat(testDataJSON.ebayMaxPrice)
     )
   })
+
+  test('Validating List and Gallery view', async ({ page }) => {
+    const championBrandOutletPage = new ChampionBrandOutletPage(page)
+    await championBrandOutletPage.clickBtnToChangeViewOfItems()
+    await championBrandOutletPage.clickListView()
+    await championBrandOutletPage.waitForBtnListViewToAppear()
+    await championBrandOutletPage.waitForListViewOfItemsToAppear()
+    await championBrandOutletPage.clickBtnToChangeViewOfItems()
+    await championBrandOutletPage.clickGalleryView()
+    await championBrandOutletPage.waitForBtnGalleryViewToAppear()
+    await championBrandOutletPage.waitForGalleryViewOfItemsToAppear()
+  })
 })

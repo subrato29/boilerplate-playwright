@@ -13,6 +13,15 @@ export class ChampionBrandOutletPage {
       `//button[@aria-label = 'Submit price range']`
     )
     this.itemPrices = `//span[@class = 's-item__price']`
+    this.btnToChangeViewOfItems = page.locator(
+      `//div[contains(@class, 'srp-controls__control')]//button[@class = 'fake-menu-button__button btn']`
+    )
+    this.listView = page.locator(`//span[text() = 'List View']/..`)
+    this.galleryView = page.locator(`//span[text() = 'Gallery View']/..`)
+    this.listViewOfItems = `//ul[@class = 'b-list__items_nofooter']`
+    this.galleryViewOfItems = `//ul[contains(@class, 'b-list__items_nofooter srp-results')][contains(@class, grid)]`
+    this.btnListView = `//button[@class = 'fake-menu-button__button btn'][@aria-label = 'View: List View']`
+    this.btnGalleryView = `//button[@class = 'fake-menu-button__button btn'][@aria-label = 'View: Gallery View']`
   }
 
   async setSearch(value) {
@@ -50,5 +59,33 @@ export class ChampionBrandOutletPage {
     )
     prices = prices.map((price) => price.slice(1))
     return prices.sort((a, b) => a - b)
+  }
+
+  async clickBtnToChangeViewOfItems() {
+    await this.btnToChangeViewOfItems.click()
+  }
+
+  async clickListView() {
+    await this.listView.click()
+  }
+
+  async clickGalleryView() {
+    await this.galleryView.click()
+  }
+
+  async waitForListViewOfItemsToAppear() {
+    await waitHelperUtils.waitForSelector(this.page, this.listViewOfItems)
+  }
+
+  async waitForGalleryViewOfItemsToAppear() {
+    await waitHelperUtils.waitForSelector(this.page, this.galleryViewOfItems)
+  }
+
+  async waitForBtnListViewToAppear() {
+    await waitHelperUtils.waitForSelector(this.page, this.btnListView)
+  }
+
+  async waitForBtnGalleryViewToAppear() {
+    await waitHelperUtils.waitForSelector(this.page, this.btnGalleryView)
   }
 }
