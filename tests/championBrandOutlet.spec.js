@@ -11,7 +11,7 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await page.goto(BASE_URL)
   })
 
-  test('Verifying search functionality and checkout items', async ({
+  test('Verifying search functionality and add to cart items', async ({
     page,
   }) => {
     const championBrandOutletPage = new ChampionBrandOutletPage(page)
