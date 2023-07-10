@@ -92,5 +92,7 @@
   ],
   "eBayItemNo1": "125904309908",
   "size": "2XL",
-  "quantity": "3"
+  "quantity": "3",
+  "ebayMinPrice": "20",
+  "ebayMaxPrice": "40"
 }

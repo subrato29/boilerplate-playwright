@@ -38,4 +38,20 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     const actualTotalPrice = await productDetailsPage.getTotalPrice()
     expect(expectedTotalPrice).toBe(parseFloat(actualTotalPrice))
   })
+
+  test('Fetching items within a certain price range', async ({ page }) => {
+    const championBrandOutletPage = new ChampionBrandOutletPage(page)
+    await championBrandOutletPage.setMinPrice(testDataJSON.ebayMinPrice)
+    await championBrandOutletPage.setMaxPrice(testDataJSON.ebayMaxPrice)
+    await championBrandOutletPage.clickBtnSubmitPriceRange()
+    await page.waitForURL()
+    const itemPrices =
+      await championBrandOutletPage.getItemPricesSortedInAscendingOrder()
+    expect(parseFloat(itemPrices[0])).toBeGreaterThanOrEqual(
+      parseFloat(testDataJSON.ebayMinPrice)
+    )
+    expect(parseFloat(itemPrices[itemPrices.length - 1])).toBeLessThanOrEqual(
+      parseFloat(testDataJSON.ebayMaxPrice)
+    )
+  })
 })
