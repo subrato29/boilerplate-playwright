@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test'
-import testDataJSON from '../support/readDataFromJson'
+import { testDataJSON, urls } from '../support/readDataFromJson'
 import { EbayHomePage } from '../pages/ebayHomePage'
-
-const BASE_URL = 'https://www.ebay.com'
 
 test.describe('Validating ebay home page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(BASE_URL)
+    await page.goto(urls.ebayHomePage)
   })
 
   test('Verifying count of suggested search result after a valid search', async ({

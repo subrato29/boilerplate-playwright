@@ -5,4 +5,6 @@ const testDataJSON = JSON.parse(
   readFileSync(resolve(__dirname, '../testData/data.json'))
 )
 
-export default testDataJSON
+const urls = JSON.parse(readFileSync(resolve(__dirname, '../config/urls.json')))
+
+export { testDataJSON, urls }
