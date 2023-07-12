@@ -22,6 +22,10 @@ export class ChampionBrandOutletPage {
     this.galleryViewOfItems = `//ul[contains(@class, 'b-list__items_nofooter srp-results')][contains(@class, grid)]`
     this.btnListView = `//button[@class = 'fake-menu-button__button btn'][@aria-label = 'View: List View']`
     this.btnGalleryView = `//button[@class = 'fake-menu-button__button btn'][@aria-label = 'View: Gallery View']`
+    this.itemsInGalleryView = `//li[@class = 's-item s-item--large']`
+    this.lnkToNavigateNextPage = page.locator(
+      `//a[@class = 'pagination__next icon-link']`
+    )
   }
 
   async setSearch(value) {
@@ -87,5 +91,13 @@ export class ChampionBrandOutletPage {
 
   async waitForBtnGalleryViewToAppear() {
     await waitHelperUtils.waitForSelector(this.page, this.btnGalleryView)
+  }
+
+  async clickLnkToNavigateNextPage() {
+    await this.lnkToNavigateNextPage.click()
+  }
+
+  async countOfItemsLoadedInAPage() {
+    return await this.page.$$(this.itemsInGalleryView)
   }
 }

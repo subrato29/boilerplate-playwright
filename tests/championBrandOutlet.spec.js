@@ -64,4 +64,19 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     await championBrandOutletPage.waitForBtnGalleryViewToAppear()
     await championBrandOutletPage.waitForGalleryViewOfItemsToAppear()
   })
+
+  test('Traverse 4 pages and validate no of max items contains in a page and ', async ({
+    page,
+  }) => {
+    const championBrandOutletPage = new ChampionBrandOutletPage(page)
+    const elements = await championBrandOutletPage.countOfItemsLoadedInAPage()
+    expect(elements.length).toBeLessThanOrEqual(24)
+    for (let i = 0; i <= 3; i++) {
+      await championBrandOutletPage.clickLnkToNavigateNextPage()
+      await page.waitForURL()
+      expect(page.url()).toContain(`pgn=${i + 2}`)
+      const elements = await championBrandOutletPage.countOfItemsLoadedInAPage()
+      expect(elements.length).toBeLessThanOrEqual(24)
+    }
+  })
 })
