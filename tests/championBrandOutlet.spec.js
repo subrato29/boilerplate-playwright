@@ -69,14 +69,14 @@ test.describe('Verifying champion clothing brand outlet page', () => {
     page,
   }) => {
     const championBrandOutletPage = new ChampionBrandOutletPage(page)
-    const elements = await championBrandOutletPage.countOfItemsLoadedInAPage()
-    expect(elements.length).toBeLessThanOrEqual(24)
+    let itemCount = await championBrandOutletPage.countOfItemsLoadedInAPage()
+    expect(itemCount).toBeLessThanOrEqual(24)
     for (let i = 0; i <= 3; i++) {
       await championBrandOutletPage.clickLnkToNavigateNextPage()
       await page.waitForURL()
       expect(page.url()).toContain(`pgn=${i + 2}`)
-      const elements = await championBrandOutletPage.countOfItemsLoadedInAPage()
-      expect(elements.length).toBeLessThanOrEqual(24)
+      itemCount = await championBrandOutletPage.countOfItemsLoadedInAPage()
+      expect(itemCount).toBeLessThanOrEqual(24)
     }
   })
 })
