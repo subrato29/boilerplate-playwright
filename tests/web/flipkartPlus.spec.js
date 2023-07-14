@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import testDataJSON from '../support/readDataFromJson'
-const { FlipkartPlusPage } = require('../pages/flipkartPlusPage')
+import testDataJSON from '../../support/readDataFromJson'
+const { FlipkartPlusPage } = require('../../pages/flipkartPlusPage')
 
 const BASE_URL = 'https://www.flipkart.com/plus'
 

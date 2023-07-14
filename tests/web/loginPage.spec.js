@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-const { LoginPage } = require('../pages/loginPage')
+const { LoginPage } = require('../../pages/loginPage')
 
 const BASE_URL = 'https://www.homedepot.com/auth/view/signin?redirect=/&ref='
 

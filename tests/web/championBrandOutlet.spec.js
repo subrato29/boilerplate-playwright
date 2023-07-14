@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
-import { testDataJSON, urls } from '../support/readDataFromJson'
-import { ChampionBrandOutletPage } from '../pages/championBrandOutletPage'
-import { PlaywrightHelper } from '../utils/playwrightHelper'
-import { ProductDetailsPage } from '../pages/productDetailsPage'
+import { testDataJSON, urls } from '../../support/readDataFromJson'
+import { ChampionBrandOutletPage } from '../../pages/championBrandOutletPage'
+import { PlaywrightHelper } from '../../utils/playwrightHelper'
+import { ProductDetailsPage } from '../../pages/productDetailsPage'
 
 test.describe('Verifying champion clothing brand outlet page', () => {
   test.beforeEach(async ({ page }) => {

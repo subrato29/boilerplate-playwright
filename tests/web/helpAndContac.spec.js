@@ -1,5 +1,5 @@
 import { test } from '@playwright/test'
-import { HelpAndContactPage } from '../pages/helpAndContactPage'
+import { HelpAndContactPage } from '../../pages/helpAndContactPage'
 
 const BASE_URL = 'https://www.ebay.com'
 

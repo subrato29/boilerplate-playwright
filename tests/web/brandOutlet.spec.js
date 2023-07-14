@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import testDataJSON from '../support/readDataFromJson'
-import { BrandOutletPage } from '../pages/brandOutletPage'
+import { testDataJSON } from '../../support/readDataFromJson'
+import { BrandOutletPage } from '../../pages/brandOutletPage'
 
 const BASE_URL = 'https://www.ebay.com'
 

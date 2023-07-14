@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import { testDataJSON, urls } from '../support/readDataFromJson'
-import { EbayHomePage } from '../pages/ebayHomePage'
+import { testDataJSON, urls } from '../../support/readDataFromJson'
+import { EbayHomePage } from '../../pages/ebayHomePage'
 
 test.describe('Validating ebay home page', () => {
   test.beforeEach(async ({ page }) => {

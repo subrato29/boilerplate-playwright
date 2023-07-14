@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import testDataJSON from '../support/readDataFromJson'
-const { HomePage } = require('../pages/homePage')
+import { testDataJSON } from '../../support/readDataFromJson'
+const { HomePage } = require('../../pages/homePage')
 
 const BASE_URL = 'https://www.homedepot.com'
 
