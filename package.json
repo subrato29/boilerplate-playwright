@@ -4,7 +4,7 @@
   "description": "This is front-end testing framework using playwright",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed",
+    "web": "npx playwright test --headed",
     "headless": "npx playwright test",
     "report": "npx playwright show-report",
     "e2e": "npx playwright test --headed && npx playwright show-report"
