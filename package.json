@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-playwright",
   "version": "1.0.0",
-  "description": "This is front-end testing framework using playwright",
+  "description": "This is e2e testing framework using playwright",
   "main": "index.js",
   "scripts": {
     "web": "npx playwright test --headed",

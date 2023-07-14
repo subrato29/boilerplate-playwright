@@ -54,10 +54,10 @@ Read test data from external JSON
 
 ```
 
-## How to run the test
+## How to run the test for web app
 
 ```
-npm run test
+npm run web
 
 ```
 

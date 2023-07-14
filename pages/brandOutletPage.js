@@ -4,7 +4,9 @@ import { PlaywrightHelper } from '../utils/playwrightHelper'
 export class BrandOutletPage {
   constructor(page) {
     this.page = page
-    this.lnkBrandOutlet = page.locator(`//a[contains(text(), 'Brand Outlet')]`)
+    this.lnkBrandOutlet = page.locator(
+      `//li/a[contains(text(), 'Brand Outlet')]`
+    )
     this.pageHeaderTheBrandOutlet = `//span[text() = 'The Brand Outlet']`
     this.clothing = `//span[text() = 'Clothing']/..`
     this.clothingBrands = `//span[text() = 'Clothing']/../..//li/a`
