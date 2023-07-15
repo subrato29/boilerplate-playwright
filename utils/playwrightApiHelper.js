@@ -1,7 +1,7 @@
 import { TOKEN } from '../config/token'
 
-export class PlaywrightApiHelper {
-  async post(request, endpoint, requestBody) {
+const playwrightApiHelper = {
+  post: async (request, endpoint, requestBody) => {
     return await request.fetch(endpoint, {
       method: 'post',
       headers: {
@@ -10,9 +10,9 @@ export class PlaywrightApiHelper {
       },
       data: requestBody,
     })
-  }
+  },
 
-  async get(request, endpoint) {
+  get: async (request, endpoint) => {
     return await request.fetch(endpoint, {
       method: 'get',
       headers: {
@@ -20,9 +20,9 @@ export class PlaywrightApiHelper {
         authorization: `Bearer ${TOKEN}`,
       },
     })
-  }
+  },
 
-  async put(request, endpoint, requestBody) {
+  put: async (request, endpoint, requestBody) => {
     return await request.fetch(endpoint, {
       method: 'put',
       headers: {
@@ -31,9 +31,9 @@ export class PlaywrightApiHelper {
       },
       data: requestBody,
     })
-  }
+  },
 
-  async delete(request, endpoint) {
+  delete: async (request, endpoint) => {
     return await request.fetch(endpoint, {
       method: 'delete',
       headers: {
@@ -41,5 +41,7 @@ export class PlaywrightApiHelper {
         authorization: `Bearer ${TOKEN}`,
       },
     })
-  }
+  },
 }
+
+export default playwrightApiHelper

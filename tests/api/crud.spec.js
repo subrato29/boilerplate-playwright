@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import randomUtils from '../../utils/randomUtils'
 import { urls } from '../../support/readDataFromJson'
-import { PlaywrightApiHelper } from '../../utils/playwrightApiHelper'
+import playwrightApiHelper from '../../utils/playwrightApiHelper'
 
 test.describe('CRUD operation', () => {
   let endpoint = `${urls.baseUrl}${urls.users}`
@@ -15,7 +15,7 @@ test.describe('CRUD operation', () => {
       gender: 'male',
       status: 'active',
     }
-    const response = await new PlaywrightApiHelper().post(
+    const response = await playwrightApiHelper.post(
       request,
       endpoint,
       requestBody
@@ -28,7 +28,7 @@ test.describe('CRUD operation', () => {
 
   test('GET call', async ({ request }) => {
     endpoint = `${endpoint}/${responseId}`
-    const response = await new PlaywrightApiHelper().get(request, endpoint)
+    const response = await playwrightApiHelper.get(request, endpoint)
     expect(response.status()).toBe(200)
     const responseBody = await response.json()
     responseId = responseBody.id
@@ -41,7 +41,7 @@ test.describe('CRUD operation', () => {
       gender: 'male',
       status: 'active',
     }
-    const response = await new PlaywrightApiHelper().put(
+    const response = await playwrightApiHelper.put(
       request,
       endpoint,
       requestBody
@@ -52,12 +52,12 @@ test.describe('CRUD operation', () => {
   })
 
   test('DELETE call', async ({ request }) => {
-    const response = await new PlaywrightApiHelper().delete(request, endpoint)
+    const response = await playwrightApiHelper.delete(request, endpoint)
     expect(response.status()).toBe(204)
   })
 
   test('GET call to verify successful DELETE', async ({ request }) => {
-    const response = await new PlaywrightApiHelper().get(request, endpoint)
+    const response = await playwrightApiHelper.get(request, endpoint)
     expect(response.status()).toBe(404)
     const responseBody = await response.json()
     expect(responseBody.message).toBe('Resource not found')
