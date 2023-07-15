@@ -7,7 +7,8 @@
     "web": "npx playwright test --headed",
     "headless": "npx playwright test",
     "report": "npx playwright show-report",
-    "e2e": "npx playwright test --headed && npx playwright show-report"
+    "e2e": "npx playwright test --headed && npx playwright show-report",
+    "api": "npx playwright test"
   },
   "keywords": [],
   "author": "Subrato Sarkar",

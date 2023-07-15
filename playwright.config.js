@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -11,7 +11,7 @@ import { defineConfig, devices } from '@playwright/test'
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests/web',
+  testDir: './tests/api',
   expect: {
     timeout: 5 * 1000,
   },
@@ -38,7 +38,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chrome',
-      testMatch: 'championBrandOutlet.spec.js',
+      testMatch: 'crud.spec.js',
       use: {
         //...devices['Desktop Chrome'],
         viewport: {
