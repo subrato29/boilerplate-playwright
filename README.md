@@ -61,6 +61,13 @@ npm run web
 
 ```
 
+## How to run the test for api
+
+```
+npm run api
+
+```
+
 ## playwright.config.js
 
 ```
