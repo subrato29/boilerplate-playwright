@@ -1,9 +1,10 @@
 import { expect, test } from '@playwright/test'
 import randomUtils from '../../utils/randomUtils'
 import { TOKEN } from '../../config/token'
+import { urls } from '../../support/readDataFromJson'
 
 test.describe('Verifying champion clothing brand outlet page', () => {
-  const ENDPOINT = 'https://gorest.co.in/public/v2/users'
+  const ENDPOINT = `${urls.baseUrl}${urls.users}`
   const random = randomUtils.generateAlphaNumericNoOfCertainLength(6)
   let responseId = ''
 

@@ -1,4 +1,6 @@
 {
   "championBrandOutletPage": "https://www.ebay.com/e/fashion/champion-brand-outlet",
-  "ebayHomePage": "https://www.ebay.com"
+  "ebayHomePage": "https://www.ebay.com",
+  "baseUrl": "https://gorest.co.in",
+  "users": "/public/v2/users"
 }
