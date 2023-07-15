@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test'
 import randomUtils from '../../utils/randomUtils'
-import { TOKEN } from '../../config/token'
 import { urls } from '../../support/readDataFromJson'
 import { PlaywrightApiHelper } from '../../utils/playwrightApiHelper'
 
