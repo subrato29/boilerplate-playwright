@@ -57,6 +57,8 @@ Read test data from external JSON
 ## How to run the test for web app
 
 ```
+Mention `testDir: './tests/web',` inside `defineConfig` in `playwright.config.js` file
+And then run below command
 npm run web
 
 ```
@@ -64,6 +66,8 @@ npm run web
 ## How to run the test for api
 
 ```
+Mention `testDir: './tests/api',` inside `defineConfig` in `playwright.config.js` file
+And then run below command
 npm run api
 
 ```
