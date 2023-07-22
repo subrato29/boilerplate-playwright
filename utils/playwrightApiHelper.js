@@ -1,4 +1,6 @@
-import { TOKEN } from '../config/token'
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const playwrightApiHelper = {
   post: async (request, endpoint, requestBody) => {
@@ -6,7 +8,7 @@ const playwrightApiHelper = {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${TOKEN}`,
+        authorization: `Bearer ${process.env.TOKEN}`,
       },
       data: requestBody,
     })
@@ -17,7 +19,7 @@ const playwrightApiHelper = {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${TOKEN}`,
+        authorization: `Bearer ${process.env.TOKEN}`,
       },
     })
   },
@@ -27,7 +29,7 @@ const playwrightApiHelper = {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${TOKEN}`,
+        authorization: `Bearer ${process.env.TOKEN}`,
       },
       data: requestBody,
     })
@@ -38,7 +40,7 @@ const playwrightApiHelper = {
       method: 'delete',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${TOKEN}`,
+        authorization: `Bearer ${process.env.TOKEN}`,
       },
     })
   },
