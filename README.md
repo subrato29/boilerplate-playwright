@@ -77,7 +77,7 @@ npm run api
 ## Where to place the token
 
 ```
-Create .env file and write your token like below
+Create .env file at root dir and write your token like below
 
 TOKEN = 'xxxxx'
 
